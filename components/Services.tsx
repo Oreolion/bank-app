@@ -1,4 +1,4 @@
-
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { CreditCard, Home, Wallet, Landmark, PiggyBank, Shield } from 'lucide-react';
 import FeatureCard from './FeatureCard';
