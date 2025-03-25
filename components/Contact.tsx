@@ -34,11 +34,10 @@ const Contact = () => {
     <section 
       id="contact" 
       ref={sectionRef}
-      className="section-padding bg-cu-light-gray"
+      className="container bg-blue-100"
     >
-      <div className="cu-container">
-        <div className="text-center mb-16 opacity-0 translate-y-10 transition-all duration-700" ref={sectionRef}>
-          <span className="inline-block py-1 px-3 rounded-full bg-cu-blue bg-opacity-10 text-cu-blue text-sm font-medium mb-4">
+        <div className="text-center mb-8" >
+          <span className="inline-block py-4 px-3 rounded-full bg-cu-blue bg-opacity-10 text-cu-blue text-3xl font-medium mb-4">
             Contact Us
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
@@ -46,6 +45,7 @@ const Contact = () => {
             Have questions or need assistance? Our team is here to help. Reach out to us through any of the channels below.
           </p>
         </div>
+      <div className="cu-container">
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div 

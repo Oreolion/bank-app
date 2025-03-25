@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { CreditCard, Home, Wallet, Landmark, PiggyBank, Shield } from 'lucide-react';
 import FeatureCard from './FeatureCard';
+import Link from 'next/link';
 
 const services = [
   {
@@ -76,11 +77,11 @@ const Services = () => {
     <section 
       id="services" 
       ref={sectionRef}
-      className="section-padding bg-cu-light-gray transition-opacity duration-500 ease-in-out"
+      className="section-padding bg-cu-light-gray transition-opacity duration-500 ease-in-out mb-4"
     >
       <div className="cu-container">
         <div className="text-center mb-16 opacity-0 translate-y-10 transition-all duration-700" ref={(el) => cardsRef.current[0] = el}>
-          <span className="inline-block py-1 px-3 rounded-full bg-cu-blue bg-opacity-10 text-cu-blue text-sm font-medium mb-4">
+          <span className="text-3xl inline-block py-4 px-3 rounded-full bg-cu-blue bg-opacity-10 text-cu-blue font-medium mb-4">
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Financial Solutions for Every Need</h2>
@@ -89,7 +90,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <div 
               key={index} 
@@ -107,11 +108,6 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12 opacity-0 translate-y-10 transition-all duration-700" ref={(el) => cardsRef.current[7] = el}>
-          <a href="#rates" className="button-primary">
-            View Our Rates
-          </a>
-        </div>
       </div>
     </section>
   );

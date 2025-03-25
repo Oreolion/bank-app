@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,31 +24,32 @@ const Navbar = () => {
 
   return (
     <header className={cn(
-      'fixed top-0 w-full z-50 transition-all duration-300',
-      scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      'font-bold text-xl fixed top-0 w-full z-50 transition-all duration-300',
+      scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent text-white py-4'
     )}>
       <div className="cu-container">
-        <nav className="flex items-center justify-between">
+        <nav className="flex items-center justify-between px-8">
           {/* Logo */}
-          <a href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-cu-blue">CUOFCO</span>
-          </a>
+          <Link href="/" className="flex items-center">
+            <span className="text-2xl font-bold text-cu-blue">AFFFCO</span>
+          </Link>
+            {/* ARMED FORCES FINANCIAL FEDERAL CREDIT UNION */}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#services" className="nav-link">Services</a>
-            <a href="#about" className="nav-link">About Us</a>
-            <a href="#rates" className="nav-link">Rates</a>
-            <a href="#location" className="nav-link">Locations</a>
-            <a href="#contact" className="nav-link">Contact</a>
+            <Link href="#services" className="nav-link">Services</Link>
+            <Link href="#about" className="nav-link">About Us</Link>
+            <Link href="#location" className="nav-link">Locations</Link>
+            <Link href="#contact" className="nav-link">Contact</Link>
             
-            <a href="#login" className="button-primary ml-4">
+            <Link href="/sign-in" className="button-primary ml-4">
               Online Banking
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
+          type='button'
             className="md:hidden focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
@@ -72,6 +74,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center mb-8">
             <span className="text-2xl font-bold text-cu-blue">CUOFCO</span>
             <button
+            type='button'
               onClick={() => setIsOpen(false)}
               className="focus:outline-none"
               aria-label="Close menu"
@@ -80,14 +83,14 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col space-y-6 text-lg">
-            <a href="#services" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Services</a>
-            <a href="#about" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>About Us</a>
-            <a href="#rates" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Rates</a>
-            <a href="#location" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Locations</a>
-            <a href="#contact" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Contact</a>
-            <a href="#login" className="button-primary mt-4 text-center">
+            <Link href="#services" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Services</Link>
+            <Link href="#about" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>About Us</Link>
+            <Link href="#location" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Locations</Link>
+            <Link href="#contact" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Contact</Link>
+            <Link href="/sign-in" className="py-2 border-b border-cu-gray" onClick={() => setIsOpen(false)}>Sign Up</Link>
+            <Link href="/sign-up" className="button-primary mt-4 text-center">
               Online Banking
-            </a>
+            </Link>
           </div>
         </div>
       </div>

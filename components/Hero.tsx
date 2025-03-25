@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -38,7 +39,7 @@ const Hero = () => {
       <div className="cu-container relative z-10 text-white text-center">
         <h1 
           className={cn(
-            "font-bold mb-6 leading-tight animate-fade-in",
+            "font-bold mb-6 leading-tight animate-fade-in text-emerald-300",
             "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
           )}
         >
@@ -48,25 +49,25 @@ const Hero = () => {
         </h1>
         
         <p 
-          className="text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in delay-200"
+          className="text-xl font-semibold sm:text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in delay-200"
         >
           Experience the difference with a community credit union 
           dedicated to your financial success.
         </p>
         
-        <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-300">
-          <a 
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in delay-300">
+          <Link 
             href="#services" 
-            className="button-primary bg-cu-blue hover:bg-cu-light-blue py-3 px-8 text-lg rounded-md"
+            className="text-center max-w-[13rem] whitespace-nowrap button-primary bg-blue-100 hover:bg-gray-300 py-3 px-8 text-lg rounded-md"
           >
             Explore Services
-          </a>
-          <a 
+          </Link>
+          <Link 
             href="#about" 
-            className="button-secondary py-3 px-8 text-lg bg-transparent border-white text-white hover:bg-white hover:text-cu-blue"
+            className="button-secondary max-w-[13rem] text-center py-3 px-8 text-lg bg-transparent border-white text-white hover:bg-white hover:text-gray-300"
           >
             Learn More
-          </a>
+          </Link>
         </div>
       </div>
 

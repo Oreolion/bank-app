@@ -6,11 +6,11 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-cu-dark-blue text-white">
+    <footer className="bg-cu-dark-blue px-8">
       <div className="cu-container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="animate-fade-in">
-            <h3 className="text-xl font-bold mb-6">CUOFCO</h3>
+            <h3 className="text-xl font-bold mb-6 text-gray-300">AFFFCO</h3>
             <p className="mb-6 text-gray-300">
               A member-owned financial cooperative dedicated to serving our community since 1979.
             </p>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
 
           <div className="animate-fade-in delay-100">
-            <h3 className="text-xl font-bold mb-6">Quick Links</h3>
+            <h3 className="text-xl font-bold mb-6 text-gray-300">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#services" className="text-gray-300 hover:text-white transition-colors duration-200">Services</a>
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
 
           <div className="animate-fade-in delay-200">
-            <h3 className="text-xl font-bold mb-6">Resources</h3>
+            <h3 className="text-xl font-bold mb-6 text-gray-300">Resources</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-gray-300 hover:text-white transition-colors duration-200">Financial Education</a>
@@ -78,19 +78,19 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="animate-fade-in delay-300">
+          <div className="animate-fade-in delay-300 text-gray-300">
             <h3 className="text-xl font-bold mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Phone className="w-5 h-5 mr-3 text-cu-light-blue" />
-                <span>(303) 455-2900</span>
+                <span>(303) 455-2911</span>
               </li>
               <li className="flex items-start">
                 <Mail className="w-5 h-5 mr-3 text-cu-light-blue" />
-                <span>info@cuofco.org</span>
+                <span>info@afffco.org</span>
               </li>
               <li>
-                <a href="#" className="button-primary bg-cu-light-blue text-white">
+                <a href="#" className="button-primary bg-cu-light-blue text-gray-200">
                   Online Banking
                 </a>
               </li>
@@ -103,7 +103,7 @@ const Footer = () => {
         <div className="cu-container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {currentYear} CUOFCO. All rights reserved.
+              &copy; {currentYear} AFFFCO. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
