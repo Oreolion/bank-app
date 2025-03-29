@@ -41,7 +41,6 @@ const AuthRedirect = ({ children }: { children: ReactNode }) => {
     
   useEffect(() => {
     if (isSignedIn && (pathname === '/sign-in' || pathname === '/sign-up' || pathname === '/')) {
-      // Redirect to dashboard if the user is signed in and is on sign-in or sign-up page
       router.push('/dashboard');
     }
   }, [isSignedIn, pathname, router]);
