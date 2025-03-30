@@ -39,13 +39,13 @@ const Hero = () => {
       <div className="cu-container relative z-10 text-white text-center">
         <h1 
           className={cn(
-            "font-bold mb-6 leading-tight animate-fade-in text-emerald-300",
+            "font-bold mb-6 leading-tight animate-fade-in text-[#F36B16]",
             "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
           )}
         >
           Banking That Puts
           <br />
-          <span className="text-cu-light-blue">People First</span>
+          <span className="text-[#F36B16]">People First</span>
         </h1>
         
         <p 

@@ -9,7 +9,7 @@ export default function RootLayout({
     <main className="relative h-screen w-full">
       <div className="absolute size-full">
         <Image
-          src="/images/austin-distel-wD1LRb9OeEo-unsplash.jpg"
+          src="/images/jonathan-cooper-0O2Pp6-mOkY-unsplash.jpg"
           alt="background"
           fill
           className="size-full"

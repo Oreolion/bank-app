@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
-import HomeFeeds from "@/components/HomeFeeds";
+import {BankDashboard} from "@/components/BankDashboard";
 import LoaderSpinner from "@/components/LoaderSpinner";
 
 const Page = () => {
   return (
     <>
       <Suspense fallback={<LoaderSpinner />}>
-        <HomeFeeds></HomeFeeds>
+        <BankDashboard></BankDashboard>
       </Suspense>
     </>
   );
