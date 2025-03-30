@@ -773,8 +773,6 @@ const sidebarItems = [
   { title: "Transactions", icon: DollarSign, badge: "12", href: "/transactions" },
   { title: "Deposit", icon: ArrowUpRight, badge: null, href: "/deposit" },
   { title: "Withdrawal", icon: ArrowDownRight, badge: null, href: "/withdrawal" },
-  { title: "Investments", icon: PieChart, badge: null, href: "/investments" },
-  { title: "Messages", icon: MessageSquare, badge: "3", href: "/messages" },
 ]
 
 const notifications = [

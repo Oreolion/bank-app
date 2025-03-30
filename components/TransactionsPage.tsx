@@ -74,9 +74,9 @@ export function TransactionsPage() {
                       {sidebarItems.map((item) => (
                         <Link
                           key={item.title}
-                          href={item.href}
+                          href={item.url}
                           className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors hover:bg-slate-800/70 ${
-                            item.href === "/transactions" ? "bg-slate-800 text-white" : "text-slate-300"
+                            item.url === "/transactions" ? "bg-slate-800 text-white" : "text-slate-300"
                           }`}
                         >
                           <div className="flex items-center gap-3">
@@ -271,9 +271,9 @@ export function TransactionsPage() {
                   {sidebarItems.map((item) => (
                     <Link
                       key={item.title}
-                      href={item.href}
+                      href={item.url}
                       className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors hover:bg-slate-800/70 ${
-                        item.href === "/deposit" ? "bg-slate-800 text-white" : "text-slate-300"
+                        item.url === "/deposit" ? "bg-slate-800 text-white" : "text-slate-300"
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -623,7 +623,7 @@ const sidebarItems = [
     { title: "Accounts", icon: Landmark, badge: null, url: "/account", },
     { title: "Transactions", icon: DollarSign, badge: "12", url: "/transactions", },
     { title: "Deposits", icon: PieChart, badge: null, url: "/deposit", },
-    { title: "Withdraws", icon: Target, badge: null, url: "/withdrawals", },
+    { title: "Withdraws", icon: Target, badge: null, url: "/withdrawal", },
   ]
 
 const notifications = [

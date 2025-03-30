@@ -1049,7 +1049,7 @@ export default function AccountPage() {
 }
 
 const sidebarItems = [
-  { title: "Dashboard", icon: LayoutDashboard, badge: null, url: "/" },
+  { title: "Dashboard", icon: LayoutDashboard, badge: null, url: "/dashboard" },
   { title: "Accounts", icon: Landmark, badge: null, url: "/account" },
   {
     title: "Transactions",
@@ -1058,7 +1058,7 @@ const sidebarItems = [
     url: "/transactions",
   },
   { title: "Deposits", icon: PieChart, badge: null, url: "/deposit" },
-  { title: "Withdraws", icon: Target, badge: null, url: "/withdrawals" },
+  { title: "Withdraws", icon: Target, badge: null, url: "/withdrawal" },
 ];
 
 const notifications = [

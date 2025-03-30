@@ -716,7 +716,7 @@ const sidebarItems = [
   { title: "Accounts", icon: Landmark, badge: null, url: "/account", },
   { title: "Transactions", icon: DollarSign, badge: "12", url: "/transactions", },
   { title: "Deposits", icon: PieChart, badge: null, url: "/deposit", },
-  { title: "Withdraws", icon: Target, badge: null, url: "/withdrawals", },
+  { title: "Withdraws", icon: Target, badge: null, url: "/withdrawal", },
 ]
 
 const transactions = [
