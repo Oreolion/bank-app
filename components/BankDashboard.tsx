@@ -712,7 +712,7 @@ export function BankDashboard() {
 }
 
 const sidebarItems = [
-  { title: "Dashboard", icon: LayoutDashboard, badge: null, url: "/" },
+  { title: "Dashboard", icon: LayoutDashboard, badge: null, url: "/dashboard" },
   { title: "Accounts", icon: Landmark, badge: null, url: "/account", },
   { title: "Transactions", icon: DollarSign, badge: "12", url: "/transactions", },
   { title: "Deposits", icon: PieChart, badge: null, url: "/deposit", },

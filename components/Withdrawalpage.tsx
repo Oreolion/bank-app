@@ -380,7 +380,7 @@ export function WithdrawalPage() {
                   <div className="space-y-4">
                     <div className="rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 p-4 border border-slate-700">
                       <h3 className="text-sm font-medium text-slate-400">Checking Account</h3>
-                      <p className="mt-1 text-2xl font-bold">$12,456.78</p>
+                      <p className="mt-1 text-2xl font-bold">$102,456.78</p>
                       <div className="mt-2 flex items-center text-xs text-green-400">
                         <ArrowUpRight className="mr-1 h-3 w-3" />
                         <span>+$1,245.30 this month</span>
@@ -389,7 +389,7 @@ export function WithdrawalPage() {
 
                     <div className="rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 p-4 border border-slate-700">
                       <h3 className="text-sm font-medium text-slate-400">Savings Account</h3>
-                      <p className="mt-1 text-2xl font-bold">$45,678.90</p>
+                      <p className="mt-1 text-2xl font-bold">$105,678.90</p>
                       <div className="mt-2 flex items-center text-xs text-green-400">
                         <ArrowUpRight className="mr-1 h-3 w-3" />
                         <span>+$4.2% from last month</span>
@@ -421,7 +421,7 @@ export function WithdrawalPage() {
                             <div className="font-medium">Checking Account</div>
                             <div className="text-xs text-slate-400">**** 4567</div>
                           </Label>
-                          <div className="text-sm font-medium">$12,456.78</div>
+                          <div className="text-sm font-medium">$102,456.78</div>
                         </div>
                         <div className="flex items-center space-x-2 rounded-md border border-slate-700 bg-slate-800/50 p-3">
                           <RadioGroupItem value="savings" id="savings-withdraw" />
@@ -429,7 +429,7 @@ export function WithdrawalPage() {
                             <div className="font-medium">Savings Account</div>
                             <div className="text-xs text-slate-400">**** 7890</div>
                           </Label>
-                          <div className="text-sm font-medium">$45,678.90</div>
+                          <div className="text-sm font-medium">$105,678.90</div>
                         </div>
                       </RadioGroup>
                     </div>
@@ -729,7 +729,7 @@ export function WithdrawalPage() {
                           <td className="py-3 text-sm">$1,000</td>
                           <td className="py-3 text-sm">Instant</td>
                           <td className="py-3 text-sm">
-                            $0 (Nova Bank ATMs)
+                            $0 (AFFFCU Bank ATMs)
                             <br />
                             $2.50 (Other ATMs)
                           </td>

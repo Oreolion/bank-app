@@ -100,7 +100,7 @@ export default function AccountPage() {
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
                     <Landmark className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-lg font-bold">Nova Bank</span>
+                  <span className="text-lg font-bold">AFFFCU</span>
                 </div>
                 <ScrollArea className="flex-1">
                   <div className="p-2">
@@ -127,9 +127,9 @@ export default function AccountPage() {
                       {sidebarItems.map((item) => (
                         <Link
                           key={item.title}
-                          href={item.href}
+                          href={item.url}
                           className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors hover:bg-slate-800/70 ${
-                            item.href === "/account"
+                            item.url === "/account"
                               ? "bg-slate-800 text-white"
                               : "text-slate-300"
                           }`}
@@ -192,7 +192,7 @@ export default function AccountPage() {
               <Landmark className="h-4 w-4 text-white" />
             </div>
             <span className="hidden text-lg font-bold md:inline-block">
-              Nova Bank
+              AFFFCU
             </span>
           </div>
         </div>
@@ -353,9 +353,9 @@ export default function AccountPage() {
                   {sidebarItems.map((item) => (
                     <Link
                       key={item.title}
-                      href={item.href}
+                      href={item.url}
                       className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors hover:bg-slate-800/70 ${
-                        item.href === "/deposit"
+                        item.url === "/deposit"
                           ? "bg-slate-800 text-white"
                           : "text-slate-300"
                       }`}
@@ -529,7 +529,7 @@ export default function AccountPage() {
                       <h3 className="text-sm font-medium text-slate-400">
                         Current Balance
                       </h3>
-                      <p className="mt-1 text-3xl font-bold">$12,456.78</p>
+                      <p className="mt-1 text-3xl font-bold">$102,456.78</p>
                       <div className="mt-2 flex items-center text-sm text-green-400">
                         <ArrowUpRight className="mr-1 h-4 w-4" />
                         <span>+$1,245.30 this month</span>
@@ -540,7 +540,7 @@ export default function AccountPage() {
                       <h3 className="text-sm font-medium text-slate-400">
                         Available Balance
                       </h3>
-                      <p className="mt-1 text-3xl font-bold">$12,456.78</p>
+                      <p className="mt-1 text-3xl font-bold">$102,456.78</p>
                       <p className="mt-2 text-xs text-slate-400">
                         All deposits cleared
                       </p>
