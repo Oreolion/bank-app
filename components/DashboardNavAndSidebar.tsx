@@ -1,13 +1,33 @@
-"use client"
-
-import { useState } from "react"
-import { ArrowDownRight, ArrowUpRight, Bell, Calendar, ChevronDown, CreditCard, DollarSign, Download, FileText, HelpCircle, Landmark, LayoutDashboard, LogOut, Menu, MessageSquare, MoreHorizontal, PieChart, Plus, Search, Settings, Shield, Target, Trash2, User, X, TrendingUp, TrendingDown, BarChart3, DollarSignIcon, Percent, RefreshCw } from 'lucide-react'
-import Link from "next/link"
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+"use client";
+import { useState } from "react";
+import {
+  ArrowDownRight,
+  Bell,
+  HelpCircle,
+  Landmark,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  DollarSign,
+  ArrowUpRight,
+  Search,
+  Settings,
+  Shield,
+  User,
+  X,
+} from "lucide-react";
+import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,39 +35,178 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Progress } from "@/components/ui/progress"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { SignOutButton } from "@clerk/nextjs";
+import { usePathname } from "next/navigation";
 
-export function InvestmentsPage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false)
-  const [timeRange, setTimeRange] = useState("1m")
+const sidebarItems = [
+  { title: "Dashboard", icon: LayoutDashboard, badge: null, url: "/" },
+  { title: "Accounts", icon: Landmark, badge: null, url: "/account" },
+  { title: "Transactions", icon: DollarSign, badge: "12", url: "/transactions" },
+  { title: "Deposits", icon: ArrowUpRight, badge: null, url: "/deposit" },
+  { title: "Withdraws", icon: ArrowDownRight, badge: null, url: "/withdrawal" },
+];
+
+const notifications = [
+  {
+    id: 1,
+    title: "Low Balance Alert",
+    description: "Your checking account balance is below $500",
+    time: "10 minutes ago",
+    icon: Bell,
+    iconBg: "bg-red-900/30",
+    iconColor: "text-red-400",
+    unread: true,
+  },
+  {
+    id: 2,
+    title: "New Transaction",
+    description: "You received a deposit of $1,200.00",
+    time: "2 hours ago",
+    icon: DollarSign,
+    iconBg: "bg-green-900/30",
+    iconColor: "text-green-400",
+    unread: true,
+  },
+  {
+    id: 3,
+    title: "Bill Due Soon",
+    description: "Your electric bill is due in 3 days",
+    time: "Yesterday",
+    icon: ArrowDownRight,
+    iconBg: "bg-amber-900/30",
+    iconColor: "text-amber-400",
+    unread: true,
+  },
+  {
+    id: 4,
+    title: "Security Alert",
+    description: "New login detected from Chrome on Windows",
+    time: "2 days ago",
+    icon: Shield,
+    iconBg: "bg-blue-900/30",
+    iconColor: "text-blue-400",
+    unread: false,
+  },
+];
+
+interface DashboardNavAndSidebarProps {
+  isSidebarOnly?: boolean;
+}
+
+const DashboardNavAndSidebar = ({ isSidebarOnly = false }: DashboardNavAndSidebarProps) => {
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isLinkActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href);
+  };
+
+
+  if (isSidebarOnly) {
+    return (
+      <div className="flex h-full flex-col">
+        <div className="flex items-center gap-3 border-b border-slate-800 p-4">
+          <Avatar>
+            <AvatarImage src="/placeholder-user.jpg" />
+            <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
+              JD
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <div className="font-medium">John Doe</div>
+            <div className="text-xs text-slate-400">Premium Member</div>
+          </div>
+        </div>
+        <ScrollArea className="flex-1">
+          <div className="p-2">
+            <div className="mb-2 px-4 text-xs font-medium text-slate-400">MENU</div>
+            <nav className="flex flex-col gap-1">
+              {sidebarItems.map((item) => (
+                <Link
+                  key={item.title}
+                  href={item.url}
+                  className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors ${
+                    isLinkActive(item.url) ? "bg-slate-800 text-white" : "text-slate-300" 
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <item.icon className="h-4 w-4" />
+                    {item.title}
+                  </div>
+                  {item.badge && (
+                    <Badge variant="secondary" className="bg-indigo-900 text-indigo-300">
+                      {item.badge}
+                    </Badge>
+                  )}
+                </Link>
+              ))}
+            </nav>
+            <div className="my-2 px-4 pt-4 text-xs font-medium text-slate-400">SETTINGS</div>
+            <nav className="flex flex-col gap-1">
+              <Link
+                href="#"
+                className="flex items-center gap-3 rounded-md px-4 py-2 text-sm text-slate-300 transition-colors hover:bg-slate-800"
+              >
+                <Settings className="h-4 w-4" />
+                Settings
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-3 rounded-md px-4 py-2 text-sm text-slate-300 transition-colors hover:bg-slate-800"
+              >
+                <HelpCircle className="h-4 w-4" />
+                Help Center
+              </Link>
+              <Link
+                href="#"
+                className="flex items-center gap-3 rounded-md px-4 py-2 text-sm text-slate-300 transition-colors hover:bg-slate-800"
+              >
+                <Shield className="h-4 w-4" />
+                Privacy & Security
+              </Link>
+            </nav>
+          </div>
+        </ScrollArea>
+        <div className="border-t border-slate-800 p-4">
+          <Button
+            variant="outline"
+            className="w-full cursor-pointer justify-center gap-2 text-red-400 border-slate-700 bg-slate-800 hover:bg-red-950/30"
+          >
+            <SignOutButton />
+          </Button>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-b from-slate-950 to-slate-900">
-      {/* Header */}
-      <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-slate-800 bg-slate-950/80 px-4 backdrop-blur-md md:px-6">
+    <>
+      <div className="flex w-full items-center justify-between">
         <div className="flex items-center gap-2">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button variant="ghost" size="icon" className="lg:hidden">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-72 border-r border-slate-800 p-0">
+            <SheetContent side="left" className="w-64 border-r border-slate-800 p-0">
               <div className="flex h-full flex-col">
                 <div className="flex items-center gap-2 border-b border-slate-800 p-4">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
                     <Landmark className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-lg font-bold">Nova Bank</span>
+                  <span className="text-lg font-bold">AFFFCU</span>
                 </div>
                 <ScrollArea className="flex-1">
                   <div className="p-2">
@@ -70,9 +229,9 @@ export function InvestmentsPage() {
                       {sidebarItems.map((item) => (
                         <Link
                           key={item.title}
-                          href={item.href}
+                          href={item.url}
                           className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors hover:bg-slate-800/70 ${
-                            item.href === "/investments" ? "bg-slate-800 text-white" : "text-slate-300"
+                            item.url === "/transactions" ? "bg-slate-800 text-white" : "text-slate-300"
                           }`}
                         >
                           <div className="flex items-center gap-3">
@@ -114,8 +273,7 @@ export function InvestmentsPage() {
                         href="#"
                         className="flex items-center gap-3 rounded-md px-4 py-2 text-sm text-red-400 transition-colors hover:bg-red-950/30"
                       >
-                        <LogOut className="h-4 w-4" />
-                        Sign Out
+                        <SignOutButton />
                       </Link>
                     </nav>
                   </div>
@@ -127,7 +285,7 @@ export function InvestmentsPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600">
               <Landmark className="h-4 w-4 text-white" />
             </div>
-            <span className="hidden text-lg font-bold md:inline-block">Nova Bank</span>
+            <span className="hidden text-lg font-bold md:inline-block">AFFFCU</span>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -147,7 +305,7 @@ export function InvestmentsPage() {
                 <Button
                   variant="outline"
                   size="icon"
-                  className="relative border-slate-700 bg-slate-800/50 hover:bg-slate-700 hover:text-slate-100"
+                  className="relative border-slate-700 bg-slate-800/50 rounded-full"
                   onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
                 >
                   <Bell className="h-5 w-5" />
@@ -201,16 +359,20 @@ export function InvestmentsPage() {
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </header>
+      </div>
 
-      {/* Notifications panel */}
       {isNotificationsOpen && (
         <div className="fixed right-4 top-16 z-50 w-80 animate-in fade-in slide-in-from-top-5 md:right-6">
           <Card className="border-slate-700 bg-slate-900 shadow-xl shadow-black/20">
             <CardHeader className="pb-2">
               <div className="flex items-center justify-between">
                 <CardTitle>Notifications</CardTitle>
-                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => setIsNotificationsOpen(false)}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="h-6 w-6"
+                  onClick={() => setIsNotificationsOpen(false)}
+                >
                   <X className="h-4 w-4" />
                 </Button>
               </div>
@@ -230,7 +392,9 @@ export function InvestmentsPage() {
                       <p className="text-xs text-slate-400">{notification.description}</p>
                       <p className="mt-1 text-xs text-slate-500">{notification.time}</p>
                     </div>
-                    {notification.unread && <div className="h-2 w-2 rounded-full bg-blue-500"></div>}
+                    {notification.unread && (
+                      <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -243,38 +407,8 @@ export function InvestmentsPage() {
           </Card>
         </div>
       )}
+    </>
+  );
+};
 
-      <div className="flex flex-1">
-        {/* Sidebar (desktop) */}
-        <aside className="hidden w-64 border-r border-slate-800 bg-slate-950 lg:block">
-          <div className="flex h-full flex-col">
-            <div className="flex items-center gap-3 border-b border-slate-800 p-4">
-              <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" />
-                <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-purple-500 text-white">
-                  JD
-                </AvatarFallback>
-              </Avatar>
-              <div>
-                <div className="font-medium">John Doe</div>
-                <div className="text-xs text-slate-400">Premium Member</div>
-              </div>
-            </div>
-            <ScrollArea className="flex-1">
-              <div className="p-2">
-                <div className="mb-2 px-4 text-xs font-medium text-slate-400">MENU</div>
-                <nav className="flex flex-col gap-1">
-                  {sidebarItems.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      className={`flex items-center justify-between rounded-md px-4 py-2 text-sm transition-colors hover:bg-slate-800/70 ${
-                        item.href === "/investments" ? "bg-slate-800 text-white" : "text-slate-300"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <item.icon className="h-4 w-4" />
-                        {item.title}
-                      </div>
-                      {item.badge && (
-                        <Badge variant="secondary" className="b
+export default DashboardNavAndSidebar;

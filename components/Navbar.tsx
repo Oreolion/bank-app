@@ -72,7 +72,7 @@ const Navbar = () => {
       >
         <div className="flex flex-col h-full p-4">
           <div className="flex justify-between items-center mb-8">
-            <span className="text-2xl font-bold text-cu-blue">CUOFCO</span>
+            <span className="text-2xl font-bold text-cu-blue">AFFFCU</span>
             <button
             type='button'
               onClick={() => setIsOpen(false)}
