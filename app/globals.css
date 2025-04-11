@@ -1,10 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
 
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221 83% 53%;
+
+  --radius: 0.75rem;
+
+  --primary-rgb: 59, 130, 246;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -13,27 +41,62 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-html {
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  color: #b48585;
 }
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-foreground;
+}
+
 
 .flex-center {
   @apply flex items-center justify-center;
 }
 
+/* Form styles */
+.form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2  transition-colors duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+
+  /* Animation classes */
+  .animate-in {
+    animation-duration: 150ms;
+    animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+    animation-fill-mode: both;
+  }
+
+  .fade-in {
+    animation-name: fade-in;
+  }
+
+  .slide-in-from-top-5 {
+    animation-name: slide-in-from-top;
+  }
+
+  .slide-in-from-bottom-5 {
+    animation-name: slide-in-from-bottom;
+  }
+
+
+
 .input-class {
   font-size: 16px;
-  background-color: #0f0f0f;
+  background-color: #fff;
   border-radius: 6px;
-  color: #d1d1d1;
+  color: #000;
   border: none;
 }
 
@@ -41,3 +104,5 @@ html {
   font-size: 16px;
   color: #a1a1a1;
 }
+
+

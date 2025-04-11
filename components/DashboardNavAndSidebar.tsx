@@ -178,12 +178,11 @@ const DashboardNavAndSidebar = ({ isSidebarOnly = false }: DashboardNavAndSideba
           </div>
         </ScrollArea>
         <div className="border-t border-slate-800 p-4">
-          <Button
-            variant="outline"
-            className="w-full cursor-pointer justify-center gap-2 text-red-400 border-slate-700 bg-slate-800 hover:bg-red-950/30"
+          <div
+            className="w-full cursor-pointer justify-center gap-2 rounded-xl text-center font-bold text-red-400 p-4 border-slate-700 bg-slate-800 hover:bg-red-950/30"
           >
             <SignOutButton />
-          </Button>
+          </div>
         </div>
       </div>
     );

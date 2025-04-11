@@ -1,13 +1,17 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false)
+
 
   useEffect(() => {
+    setIsLoaded(true)
+
     const handleParallax = () => {
       if (!heroRef.current) return;
       const scrolled = window.scrollY;

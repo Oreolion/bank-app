@@ -38,8 +38,8 @@ const Index = () => {
   return (
     <div className=''>
       <Head>
-        <title>CUOFCO - Credit Union of Colorado</title>
-        <meta name="description" content="Credit Union of Colorado - Banking that puts people first" />
+        <title>AFFFCU - Armed Forces Financial Credit Union</title>
+        <meta name="description" content="Armed Forces Financial Credit Union - Banking that puts people first" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>

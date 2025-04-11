@@ -1,13 +1,14 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
+import tailwindcssAnimate from "tailwindcss-animate";
 
-const config: Config = {
+const config = {
   darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "*.{js,ts,jsx,tsx,mdx}",
   ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -51,6 +52,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom banking theme colors
         banking: {
           blue: {
             light: "#EBF5FF",
@@ -121,6 +123,12 @@ const config: Config = {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
+        blob: {
+          "0%": { transform: "translate(0, 0) scale(1)" },
+          "33%": { transform: "translate(5%, 5%) scale(1.1)" },
+          "66%": { transform: "translate(-5%, 10%) scale(0.9)" },
+          "100%": { transform: "translate(0%, -5%) scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -132,6 +140,8 @@ const config: Config = {
         "slide-in-from-left": "slide-in-from-left 0.2s ease-out",
         "slide-in-from-right": "slide-in-from-right 0.2s ease-out",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        blob: "blob 15s infinite alternate ease-in-out",
+        float: "float 4s ease-in-out infinite",
       },
       transitionProperty: {
         height: "height",
@@ -143,7 +153,59 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-};
+  plugins: [
+    tailwindcssAnimate,
+    
+    // Add function to generate CSS variables for the theme
+    // @ts-expect-error type error    
+    ({ addBase }) => {
+      addBase({
+        ":root": {
+          "--background": "0 0% 100%",
+          "--foreground": "222.2 84% 4.9%",
+          "--card": "0 0% 100%",
+          "--card-foreground": "222.2 84% 4.9%",
+          "--popover": "0 0% 100%",
+          "--popover-foreground": "222.2 84% 4.9%",
+          "--primary": "221.2 83.2% 53.3%",
+          "--primary-foreground": "210 40% 98%",
+          "--secondary": "210 40% 96.1%",
+          "--secondary-foreground": "222.2 47.4% 11.2%",
+          "--muted": "210 40% 96.1%",
+          "--muted-foreground": "215.4 16.3% 46.9%",
+          "--accent": "210 40% 96.1%",
+          "--accent-foreground": "222.2 47.4% 11.2%",
+          "--destructive": "0 84.2% 60.2%",
+          "--destructive-foreground": "210 40% 98%",
+          "--border": "214.3 31.8% 91.4%",
+          "--input": "214.3 31.8% 91.4%",
+          "--ring": "221.2 83.2% 53.3%",
+          "--radius": "0.5rem",
+        },
+        ".dark": {
+          "--background": "222.2 84% 4.9%",
+          "--foreground": "210 40% 98%",
+          "--card": "222.2 84% 4.9%",
+          "--card-foreground": "210 40% 98%",
+          "--popover": "222.2 84% 4.9%",
+          "--popover-foreground": "210 40% 98%",
+          "--primary": "217.2 91.2% 59.8%",
+          "--primary-foreground": "222.2 47.4% 11.2%",
+          "--secondary": "217.2 32.6% 17.5%",
+          "--secondary-foreground": "210 40% 98%",
+          "--muted": "217.2 32.6% 17.5%",
+          "--muted-foreground": "215 20.2% 65.1%",
+          "--accent": "217.2 32.6% 17.5%",
+          "--accent-foreground": "210 40% 98%",
+          "--destructive": "0 62.8% 30.6%",
+          "--destructive-foreground": "210 40% 98%",
+          "--border": "217.2 32.6% 17.5%",
+          "--input": "217.2 32.6% 17.5%",
+          "--ring": "224.3 76.3% 48%",
+        },
+      })
+    },
+  ],
+} satisfies Config
 
-export default config;
+export default config

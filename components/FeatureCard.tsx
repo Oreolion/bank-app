@@ -1,39 +1,37 @@
-
-import React from 'react';
-import { cn } from '@/lib/utils';
+import type React from "react"
 
 interface FeatureCardProps {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  className?: string;
-  animationDelay?: string;
+  icon: React.ReactNode
+  title: string
+  description: string
+  animationDelay?: string
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
-  title,
-  description,
-  icon,
-  className,
-  animationDelay = ''
-}) => {
+const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
-    <div 
-      className={cn(
-        "card-hover bg-white rounded-lg p-6 shadow-sm animate-scale-in", 
-        animationDelay,
-        className
-      )}
-    >
-      <div className="flex items-center mb-4">
-        <div className="p-2 rounded-md bg-cu-light-gray text-cu-blue mr-4">
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold">{title}</h3>
+    <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
+      <div className="bg-blue-100 text-blue-600 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+        {icon}
       </div>
-      <p className="text-cu-dark-gray">{description}</p>
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-gray-600 flex-grow">{description}</p>
+      <div className="mt-4">
+        <a href="#" className="text-blue-600 font-medium hover:text-blue-800 inline-flex items-center">
+          Learn more
+          <svg
+            className="w-4 h-4 ml-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeatureCard;
+export default FeatureCard
+
